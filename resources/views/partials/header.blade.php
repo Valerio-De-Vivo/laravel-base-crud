@@ -5,10 +5,10 @@
     <!-- Links -->
     <ul class="navbar-nav">
         <li class="nav-item">
-            <a class="nav-link" href="#">Home</a>
+            <a class="nav-link" href="{{asset('/')}} ">Home</a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" href="#">Carte</a>
+            <a class="nav-link" href="{{asset('cards')}}">Carte</a>
         </li>
         
     </ul>
