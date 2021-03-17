@@ -1,2 +1,13 @@
 @import 'node_modules/bootstrap/scss/bootstrap';
 
+nav {
+    height: 10vh !important;
+}
+main{
+    min-height: 80vh;
+}
+
+footer {
+    height: 10vh;
+    color: white;
+}
