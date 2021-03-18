@@ -3,6 +3,7 @@
 @section('titolo', 'cards shop')
 
 @section('content')
+<a href="{{route('cards.create')}}"> Aggiungi nuova carta</a>
 <table class="table table-striped">
     <thead>
         <tr>
