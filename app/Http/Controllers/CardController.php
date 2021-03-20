@@ -54,14 +54,17 @@ class CardController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Card $card)
     {
-        $card = Card::find($id);
-
-        $data = [
-            'carta' => $card
-        ];
-        return view('cards.card',$data);
+        // $card = Card::find($id);
+        if ($card) {
+            $data = [
+                'carta' => $card
+            ];
+            return view('cards.card',$data);
+        }
+        die('404');
+        
     }
 
     /**
@@ -70,9 +73,15 @@ class CardController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Card $card)
     {
-        //
+        if ($card) {
+            $data = [
+                'carta' => $card
+            ];
+            return view('cards.edit',$data);
+        }
+        die('404');
     }
 
     /**
@@ -82,9 +91,11 @@ class CardController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Card $card)
     {
-        //
+        $data = $request->all();
+        $card->update($data);
+        return redirect()->route('cards.index');
     }
 
     /**
@@ -93,8 +104,10 @@ class CardController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Card $card)
     {
-        //
+        $card->delete();
+
+        return redirect()->route('cards.index');
     }
 }
